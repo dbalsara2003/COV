@@ -1,7 +1,7 @@
 # ROOT
 # -> Python Files
 # -> .env Files
-# -> Other configuration Files
+# -> Other Configuration Files
 
 # Templates
 # -> HTML Files
