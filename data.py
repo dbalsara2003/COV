@@ -3,16 +3,13 @@ import pandas as pd
 from arcgis.gis import GIS
 
 ## property data goes here
-url = ''
+url = 'https://opendata.vancouver.ca/api/records/1.0/search/?dataset=storefronts-inventory&q=&facet=retail_category&facet=year_recorded&facet=geo_local_area&facet=geo_m'
 
 response = requests.get(url)
 data = response.json()
 df = pd.DataFrame(data)
 
 ## Clean data
-df.dropna(inplace=True)
-df.drop_duplicates(inplace=True)
-
 
 gis = GIS()
 for index, row in df.iterrows():
@@ -25,3 +22,5 @@ for index, row in df.iterrows():
     # Add the image_url and metadata to the dataframe
     df.at[index, 'image_url'] = image_url
     df.at[index, 'image_metadata'] = image_metadata
+
+print(df)
