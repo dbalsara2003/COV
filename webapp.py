@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/home')
@@ -7,7 +7,7 @@ def hello():
 
 @app.route('/check_file')
 def check_file_page():
-    return "This page will be for inputting a file with multiple rows of estimates needed."
+    return render_template('check_file.html')
 
 @app.route('/check_manual')
 def check_manual_page():
