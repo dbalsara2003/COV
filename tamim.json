@@ -1,0 +1,1112 @@
+{
+    "nhits": 100207,
+    "parameters": {
+        "dataset": "property-parcel-polygons",
+        "rows": 10,
+        "start": 0,
+        "facet": [
+            "streetname"
+        ],
+        "format": "json",
+        "timezone": "UTC"
+    },
+    "records": [
+        {
+            "datasetid": "property-parcel-polygons",
+            "recordid": "adff76d2af21a8d97828df2c33371ee343376049",
+            "fields": {
+                "tax_coord": "25359894",
+                "site_id": "029589096",
+                "geom": {
+                    "coordinates": [
+                        [
+                            [
+                                -123.06547957108934,
+                                49.2770480909934
+                            ],
+                            [
+                                -123.06548063429308,
+                                49.276719217476135
+                            ],
+                            [
+                                -123.06465141374046,
+                                49.276713225871156
+                            ],
+                            [
+                                -123.06464997383006,
+                                49.27704210858628
+                            ],
+                            [
+                                -123.06547957108934,
+                                49.2770480909934
+                            ]
+                        ]
+                    ],
+                    "type": "Polygon"
+                },
+                "streetname": "VICTORIA DRIVE",
+                "geo_point_2d": [
+                    49.276880673159845,
+                    -123.06506539568646
+                ],
+                "civic_number": "870"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.06506539568646,
+                    49.276880673159845
+                ]
+            },
+            "record_timestamp": "2023-02-13T13:23:28.724Z"
+        },
+        {
+            "datasetid": "property-parcel-polygons",
+            "recordid": "b0f7d0284f420976e66819b29c4ca4986c8d0330",
+            "fields": {
+                "tax_coord": "64519071",
+                "site_id": "EPS2878",
+                "geom": {
+                    "coordinates": [
+                        [
+                            [
+                                -123.09979706000263,
+                                49.26591264894838
+                            ],
+                            [
+                                -123.09981123035764,
+                                49.26557824006013
+                            ],
+                            [
+                                -123.0989820365475,
+                                49.26556312182946
+                            ],
+                            [
+                                -123.09896787392421,
+                                49.26589732371941
+                            ],
+                            [
+                                -123.09979706000263,
+                                49.26591264894838
+                            ]
+                        ]
+                    ],
+                    "type": "Polygon"
+                },
+                "streetname": "E 6TH AV",
+                "geo_point_2d": [
+                    49.265737834459614,
+                    -123.09938959298805
+                ],
+                "civic_number": "289"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.09938959298805,
+                    49.265737834459614
+                ]
+            },
+            "record_timestamp": "2023-02-13T13:23:28.724Z"
+        },
+        {
+            "datasetid": "property-parcel-polygons",
+            "recordid": "099332e3d499c0484a0ed4372781329c349238a4",
+            "fields": {
+                "tax_coord": "69426484",
+                "site_id": "029597021",
+                "geom": {
+                    "coordinates": [
+                        [
+                            [
+                                -123.05953963356347,
+                                49.2521992680467
+                            ],
+                            [
+                                -123.05972807749673,
+                                49.25190926375345
+                            ],
+                            [
+                                -123.05960135331253,
+                                49.251873977971854
+                            ],
+                            [
+                                -123.05941289502945,
+                                49.25216398206751
+                            ],
+                            [
+                                -123.05953963356347,
+                                49.2521992680467
+                            ]
+                        ]
+                    ],
+                    "type": "Polygon"
+                },
+                "streetname": "E 19TH AV",
+                "geo_point_2d": [
+                    49.25203662526519,
+                    -123.05957048821422
+                ],
+                "civic_number": "2212"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.05957048821422,
+                    49.25203662526519
+                ]
+            },
+            "record_timestamp": "2023-02-13T13:23:28.724Z"
+        },
+        {
+            "datasetid": "property-parcel-polygons",
+            "recordid": "b51f2db9791297e6f8bf3429f9799a1dc852c628",
+            "fields": {
+                "tax_coord": "59023316",
+                "site_id": "EPS2634",
+                "geom": {
+                    "coordinates": [
+                        [
+                            [
+                                -123.0739820183736,
+                                49.2811459137201
+                            ],
+                            [
+                                -123.07399176097725,
+                                49.28081119692244
+                            ],
+                            [
+                                -123.07278496574473,
+                                49.28079482756137
+                            ],
+                            [
+                                -123.07277495314092,
+                                49.28112913964399
+                            ],
+                            [
+                                -123.0739820183736,
+                                49.2811459137201
+                            ]
+                        ]
+                    ],
+                    "type": "Polygon"
+                },
+                "streetname": "E HASTINGS ST",
+                "geo_point_2d": [
+                    49.2809702776263,
+                    -123.07338354488796
+                ],
+                "civic_number": "1502"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.07338354488796,
+                    49.2809702776263
+                ]
+            },
+            "record_timestamp": "2023-02-13T13:23:28.724Z"
+        },
+        {
+            "datasetid": "property-parcel-polygons",
+            "recordid": "c30aae958c9f8f5fe947ff36fa917d59555b3458",
+            "fields": {
+                "tax_coord": "58625565",
+                "site_id": "EPS2923",
+                "geom": {
+                    "coordinates": [
+                        [
+                            [
+                                -123.06240357575008,
+                                49.28434320021789
+                            ],
+                            [
+                                -123.062409588855,
+                                49.28400876545928
+                            ],
+                            [
+                                -123.06220234315496,
+                                49.28400769883775
+                            ],
+                            [
+                                -123.06219636991099,
+                                49.28434214255916
+                            ],
+                            [
+                                -123.06240357575008,
+                                49.28434320021789
+                            ]
+                        ]
+                    ],
+                    "type": "Polygon"
+                },
+                "streetname": "TRIUMPH ST",
+                "geo_point_2d": [
+                    49.284175446384175,
+                    -123.062302969062
+                ],
+                "civic_number": "2051"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.062302969062,
+                    49.284175446384175
+                ]
+            },
+            "record_timestamp": "2023-02-13T13:23:28.724Z"
+        },
+        {
+            "datasetid": "property-parcel-polygons",
+            "recordid": "acb81b342da056adfff89c980c4f79e7d4dad06a",
+            "fields": {
+                "tax_coord": "59222234",
+                "site_id": "EPS2752",
+                "geom": {
+                    "coordinates": [
+                        [
+                            [
+                                -123.08061521662118,
+                                49.27994960627424
+                            ],
+                            [
+                                -123.0806222886536,
+                                49.2796152685008
+                            ],
+                            [
+                                -123.08041266681983,
+                                49.279613093812046
+                            ],
+                            [
+                                -123.08040556596012,
+                                49.27994748556367
+                            ],
+                            [
+                                -123.08061521662118,
+                                49.27994960627424
+                            ]
+                        ]
+                    ],
+                    "type": "Polygon"
+                },
+                "streetname": "E PENDER ST",
+                "geo_point_2d": [
+                    49.279781367187354,
+                    -123.08051393160069
+                ],
+                "civic_number": "1130"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.08051393160069,
+                    49.279781367187354
+                ]
+            },
+            "record_timestamp": "2023-02-13T13:23:28.724Z"
+        },
+        {
+            "datasetid": "property-parcel-polygons",
+            "recordid": "276e4de1771d366d4b06738a4ce2083b0538c54b",
+            "fields": {
+                "tax_coord": "77022545",
+                "site_id": "029602530",
+                "geom": {
+                    "coordinates": [
+                        [
+                            [
+                                -123.07869382152886,
+                                49.25208133282221
+                            ],
+                            [
+                                -123.07899027025016,
+                                49.251808908080704
+                            ],
+                            [
+                                -123.07873669169534,
+                                49.251690596090036
+                            ],
+                            [
+                                -123.07844029732235,
+                                49.251963065125594
+                            ],
+                            [
+                                -123.07869382152886,
+                                49.25208133282221
+                            ]
+                        ]
+                    ],
+                    "type": "Polygon"
+                },
+                "streetname": "KINGSWAY",
+                "geo_point_2d": [
+                    49.251885968984716,
+                    -123.07871527585127
+                ],
+                "civic_number": "1241"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.07871527585127,
+                    49.251885968984716
+                ]
+            },
+            "record_timestamp": "2023-02-13T13:23:28.724Z"
+        },
+        {
+            "datasetid": "property-parcel-polygons",
+            "recordid": "c07227da8f963e58c5918fdbfec60f4764694ee6",
+            "fields": {
+                "tax_coord": "21081010",
+                "site_id": "029606942",
+                "geom": {
+                    "coordinates": [
+                        [
+                            [
+                                -123.09079261320831,
+                                49.21815596742992
+                            ],
+                            [
+                                -123.09081070415252,
+                                49.21748459970406
+                            ],
+                            [
+                                -123.09035427420032,
+                                49.2174783011218
+                            ],
+                            [
+                                -123.09033650703726,
+                                49.21814988440912
+                            ],
+                            [
+                                -123.09079261320831,
+                                49.21815596742992
+                            ]
+                        ]
+                    ],
+                    "type": "Polygon"
+                },
+                "streetname": "E 57TH AV",
+                "geo_point_2d": [
+                    49.217817147604585,
+                    -123.09057351377523
+                ],
+                "civic_number": "706"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.09057351377523,
+                    49.217817147604585
+                ]
+            },
+            "record_timestamp": "2023-02-13T13:23:28.724Z"
+        },
+        {
+            "datasetid": "property-parcel-polygons",
+            "recordid": "e090f6f6f9b0c41f3af43623b075d159dbbefadd",
+            "fields": {
+                "tax_coord": "64825324",
+                "site_id": "EPS2953",
+                "geom": {
+                    "coordinates": [
+                        [
+                            [
+                                -123.06546318096159,
+                                49.26314567649922
+                            ],
+                            [
+                                -123.0654696106259,
+                                49.26281113216634
+                            ],
+                            [
+                                -123.06533139561982,
+                                49.26281012198172
+                            ],
+                            [
+                                -123.06532497878953,
+                                49.26314468429
+                            ],
+                            [
+                                -123.06546318096159,
+                                49.26314567649922
+                            ]
+                        ]
+                    ],
+                    "type": "Polygon"
+                },
+                "streetname": "E 8TH AV",
+                "geo_point_2d": [
+                    49.262977901071736,
+                    -123.0653972909347
+                ],
+                "civic_number": "1922"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.0653972909347,
+                    49.262977901071736
+                ]
+            },
+            "record_timestamp": "2023-02-13T13:23:28.724Z"
+        },
+        {
+            "datasetid": "property-parcel-polygons",
+            "recordid": "c7ffc670e5284742a687d60d68080792f6655fe4",
+            "fields": {
+                "tax_coord": "27372294",
+                "site_id": "EPS2869",
+                "geom": {
+                    "coordinates": [
+                        [
+                            [
+                                -123.05354562157578,
+                                49.24345354977433
+                            ],
+                            [
+                                -123.05361986697503,
+                                49.243377145786205
+                            ],
+                            [
+                                -123.05323295149925,
+                                49.243213170653384
+                            ],
+                            [
+                                -123.05315829377244,
+                                49.24328975448944
+                            ],
+                            [
+                                -123.05354562157578,
+                                49.24345354977433
+                            ]
+                        ]
+                    ],
+                    "type": "Polygon"
+                },
+                "streetname": "CLARENDON ST",
+                "geo_point_2d": [
+                    49.24333336313202,
+                    -123.05338907491247
+                ],
+                "civic_number": "4628"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.05338907491247,
+                    49.24333336313202
+                ]
+            },
+            "record_timestamp": "2023-02-13T13:23:28.724Z"
+        }
+    ],
+    "facet_groups": [
+        {
+            "name": "streetname",
+            "facets": [
+                {
+                    "name": "W 14TH AV",
+                    "count": 866,
+                    "state": "displayed",
+                    "path": "W 14TH AV"
+                },
+                {
+                    "name": "MAIN ST",
+                    "count": 859,
+                    "state": "displayed",
+                    "path": "MAIN ST"
+                },
+                {
+                    "name": "W 13TH AV",
+                    "count": 849,
+                    "state": "displayed",
+                    "path": "W 13TH AV"
+                },
+                {
+                    "name": "W 15TH AV",
+                    "count": 814,
+                    "state": "displayed",
+                    "path": "W 15TH AV"
+                },
+                {
+                    "name": "W 12TH AV",
+                    "count": 786,
+                    "state": "displayed",
+                    "path": "W 12TH AV"
+                },
+                {
+                    "name": "W 11TH AV",
+                    "count": 725,
+                    "state": "displayed",
+                    "path": "W 11TH AV"
+                },
+                {
+                    "name": "VICTORIA DRIVE",
+                    "count": 723,
+                    "state": "displayed",
+                    "path": "VICTORIA DRIVE"
+                },
+                {
+                    "name": "W 10TH AV",
+                    "count": 678,
+                    "state": "displayed",
+                    "path": "W 10TH AV"
+                },
+                {
+                    "name": "E 28TH AV",
+                    "count": 646,
+                    "state": "displayed",
+                    "path": "E 28TH AV"
+                },
+                {
+                    "name": "NANAIMO ST",
+                    "count": 627,
+                    "state": "displayed",
+                    "path": "NANAIMO ST"
+                },
+                {
+                    "name": "W 16TH AV",
+                    "count": 617,
+                    "state": "displayed",
+                    "path": "W 16TH AV"
+                },
+                {
+                    "name": "W 19TH AV",
+                    "count": 613,
+                    "state": "displayed",
+                    "path": "W 19TH AV"
+                },
+                {
+                    "name": "W 8TH AV",
+                    "count": 601,
+                    "state": "displayed",
+                    "path": "W 8TH AV"
+                },
+                {
+                    "name": "E PENDER ST",
+                    "count": 597,
+                    "state": "displayed",
+                    "path": "E PENDER ST"
+                },
+                {
+                    "name": "W 20TH AV",
+                    "count": 593,
+                    "state": "displayed",
+                    "path": "W 20TH AV"
+                },
+                {
+                    "name": "GRANVILLE ST",
+                    "count": 583,
+                    "state": "displayed",
+                    "path": "GRANVILLE ST"
+                },
+                {
+                    "name": "E 22ND AV",
+                    "count": 568,
+                    "state": "displayed",
+                    "path": "E 22ND AV"
+                },
+                {
+                    "name": "W 21ST AV",
+                    "count": 564,
+                    "state": "displayed",
+                    "path": "W 21ST AV"
+                },
+                {
+                    "name": "W 22ND AV",
+                    "count": 564,
+                    "state": "displayed",
+                    "path": "W 22ND AV"
+                },
+                {
+                    "name": "W 2ND AV",
+                    "count": 562,
+                    "state": "displayed",
+                    "path": "W 2ND AV"
+                },
+                {
+                    "name": "W 18TH AV",
+                    "count": 558,
+                    "state": "displayed",
+                    "path": "W 18TH AV"
+                },
+                {
+                    "name": "E GEORGIA ST",
+                    "count": 555,
+                    "state": "displayed",
+                    "path": "E GEORGIA ST"
+                },
+                {
+                    "name": "W 7TH AV",
+                    "count": 554,
+                    "state": "displayed",
+                    "path": "W 7TH AV"
+                },
+                {
+                    "name": "E 45TH AV",
+                    "count": 552,
+                    "state": "displayed",
+                    "path": "E 45TH AV"
+                },
+                {
+                    "name": "W 5TH AV",
+                    "count": 539,
+                    "state": "displayed",
+                    "path": "W 5TH AV"
+                },
+                {
+                    "name": "E 27TH AV",
+                    "count": 538,
+                    "state": "displayed",
+                    "path": "E 27TH AV"
+                },
+                {
+                    "name": "W 3RD AV",
+                    "count": 537,
+                    "state": "displayed",
+                    "path": "W 3RD AV"
+                },
+                {
+                    "name": "E 49TH AV",
+                    "count": 519,
+                    "state": "displayed",
+                    "path": "E 49TH AV"
+                },
+                {
+                    "name": "FRASER ST",
+                    "count": 519,
+                    "state": "displayed",
+                    "path": "FRASER ST"
+                },
+                {
+                    "name": "E 8TH AV",
+                    "count": 514,
+                    "state": "displayed",
+                    "path": "E 8TH AV"
+                },
+                {
+                    "name": "RUPERT ST",
+                    "count": 513,
+                    "state": "displayed",
+                    "path": "RUPERT ST"
+                },
+                {
+                    "name": "W 6TH AV",
+                    "count": 511,
+                    "state": "displayed",
+                    "path": "W 6TH AV"
+                },
+                {
+                    "name": "W KING EDWARD AV",
+                    "count": 505,
+                    "state": "displayed",
+                    "path": "W KING EDWARD AV"
+                },
+                {
+                    "name": "E 6TH AV",
+                    "count": 504,
+                    "state": "displayed",
+                    "path": "E 6TH AV"
+                },
+                {
+                    "name": "W 23RD AV",
+                    "count": 501,
+                    "state": "displayed",
+                    "path": "W 23RD AV"
+                },
+                {
+                    "name": "E 7TH AV",
+                    "count": 484,
+                    "state": "displayed",
+                    "path": "E 7TH AV"
+                },
+                {
+                    "name": "E HASTINGS ST",
+                    "count": 482,
+                    "state": "displayed",
+                    "path": "E HASTINGS ST"
+                },
+                {
+                    "name": "E 26TH AV",
+                    "count": 475,
+                    "state": "displayed",
+                    "path": "E 26TH AV"
+                },
+                {
+                    "name": "E 46TH AV",
+                    "count": 471,
+                    "state": "displayed",
+                    "path": "E 46TH AV"
+                },
+                {
+                    "name": "E 19TH AV",
+                    "count": 470,
+                    "state": "displayed",
+                    "path": "E 19TH AV"
+                },
+                {
+                    "name": "E 23RD AV",
+                    "count": 469,
+                    "state": "displayed",
+                    "path": "E 23RD AV"
+                },
+                {
+                    "name": "E 20TH AV",
+                    "count": 463,
+                    "state": "displayed",
+                    "path": "E 20TH AV"
+                },
+                {
+                    "name": "E 54TH AV",
+                    "count": 461,
+                    "state": "displayed",
+                    "path": "E 54TH AV"
+                },
+                {
+                    "name": "INVERNESS ST",
+                    "count": 459,
+                    "state": "displayed",
+                    "path": "INVERNESS ST"
+                },
+                {
+                    "name": "W 37TH AV",
+                    "count": 459,
+                    "state": "displayed",
+                    "path": "W 37TH AV"
+                },
+                {
+                    "name": "CHARLES ST",
+                    "count": 458,
+                    "state": "displayed",
+                    "path": "CHARLES ST"
+                },
+                {
+                    "name": "E 18TH AV",
+                    "count": 457,
+                    "state": "displayed",
+                    "path": "E 18TH AV"
+                },
+                {
+                    "name": "VENABLES ST",
+                    "count": 457,
+                    "state": "displayed",
+                    "path": "VENABLES ST"
+                },
+                {
+                    "name": "E 21ST AV",
+                    "count": 456,
+                    "state": "displayed",
+                    "path": "E 21ST AV"
+                },
+                {
+                    "name": "E 24TH AV",
+                    "count": 453,
+                    "state": "displayed",
+                    "path": "E 24TH AV"
+                },
+                {
+                    "name": "E 5TH AV",
+                    "count": 453,
+                    "state": "displayed",
+                    "path": "E 5TH AV"
+                },
+                {
+                    "name": "E 2ND AV",
+                    "count": 451,
+                    "state": "displayed",
+                    "path": "E 2ND AV"
+                },
+                {
+                    "name": "W BROADWAY",
+                    "count": 449,
+                    "state": "displayed",
+                    "path": "W BROADWAY"
+                },
+                {
+                    "name": "E 47TH AV",
+                    "count": 447,
+                    "state": "displayed",
+                    "path": "E 47TH AV"
+                },
+                {
+                    "name": "E BROADWAY",
+                    "count": 447,
+                    "state": "displayed",
+                    "path": "E BROADWAY"
+                },
+                {
+                    "name": "ANGUS DRIVE",
+                    "count": 444,
+                    "state": "displayed",
+                    "path": "ANGUS DRIVE"
+                },
+                {
+                    "name": "E 51ST AV",
+                    "count": 442,
+                    "state": "displayed",
+                    "path": "E 51ST AV"
+                },
+                {
+                    "name": "E 4TH AV",
+                    "count": 441,
+                    "state": "displayed",
+                    "path": "E 4TH AV"
+                },
+                {
+                    "name": "DUMFRIES ST",
+                    "count": 437,
+                    "state": "displayed",
+                    "path": "DUMFRIES ST"
+                },
+                {
+                    "name": "KINGSWAY",
+                    "count": 429,
+                    "state": "displayed",
+                    "path": "KINGSWAY"
+                },
+                {
+                    "name": "W 4TH AV",
+                    "count": 429,
+                    "state": "displayed",
+                    "path": "W 4TH AV"
+                },
+                {
+                    "name": "ADANAC ST",
+                    "count": 428,
+                    "state": "displayed",
+                    "path": "ADANAC ST"
+                },
+                {
+                    "name": "KNIGHT ST",
+                    "count": 428,
+                    "state": "displayed",
+                    "path": "KNIGHT ST"
+                },
+                {
+                    "name": "E 29TH AV",
+                    "count": 418,
+                    "state": "displayed",
+                    "path": "E 29TH AV"
+                },
+                {
+                    "name": "E 3RD AV",
+                    "count": 418,
+                    "state": "displayed",
+                    "path": "E 3RD AV"
+                },
+                {
+                    "name": "FLEMING ST",
+                    "count": 416,
+                    "state": "displayed",
+                    "path": "FLEMING ST"
+                },
+                {
+                    "name": "ONTARIO ST",
+                    "count": 416,
+                    "state": "displayed",
+                    "path": "ONTARIO ST"
+                },
+                {
+                    "name": "W 33RD AV",
+                    "count": 414,
+                    "state": "displayed",
+                    "path": "W 33RD AV"
+                },
+                {
+                    "name": "E 12TH AV",
+                    "count": 413,
+                    "state": "displayed",
+                    "path": "E 12TH AV"
+                },
+                {
+                    "name": "W 38TH AV",
+                    "count": 406,
+                    "state": "displayed",
+                    "path": "W 38TH AV"
+                },
+                {
+                    "name": "E 41ST AV",
+                    "count": 400,
+                    "state": "displayed",
+                    "path": "E 41ST AV"
+                },
+                {
+                    "name": "E 50TH AV",
+                    "count": 392,
+                    "state": "displayed",
+                    "path": "E 50TH AV"
+                },
+                {
+                    "name": "W 35TH AV",
+                    "count": 389,
+                    "state": "displayed",
+                    "path": "W 35TH AV"
+                },
+                {
+                    "name": "E 11TH AV",
+                    "count": 386,
+                    "state": "displayed",
+                    "path": "E 11TH AV"
+                },
+                {
+                    "name": "E 1ST AV",
+                    "count": 381,
+                    "state": "displayed",
+                    "path": "E 1ST AV"
+                },
+                {
+                    "name": "E 15TH AV",
+                    "count": 377,
+                    "state": "displayed",
+                    "path": "E 15TH AV"
+                },
+                {
+                    "name": "W 36TH AV",
+                    "count": 377,
+                    "state": "displayed",
+                    "path": "W 36TH AV"
+                },
+                {
+                    "name": "W 41ST AV",
+                    "count": 376,
+                    "state": "displayed",
+                    "path": "W 41ST AV"
+                },
+                {
+                    "name": "E 13TH AV",
+                    "count": 373,
+                    "state": "displayed",
+                    "path": "E 13TH AV"
+                },
+                {
+                    "name": "E 48TH AV",
+                    "count": 371,
+                    "state": "displayed",
+                    "path": "E 48TH AV"
+                },
+                {
+                    "name": "WILLIAM ST",
+                    "count": 371,
+                    "state": "displayed",
+                    "path": "WILLIAM ST"
+                },
+                {
+                    "name": "E 53RD AV",
+                    "count": 367,
+                    "state": "displayed",
+                    "path": "E 53RD AV"
+                },
+                {
+                    "name": "GRANT ST",
+                    "count": 364,
+                    "state": "displayed",
+                    "path": "GRANT ST"
+                },
+                {
+                    "name": "W 1ST AV",
+                    "count": 364,
+                    "state": "displayed",
+                    "path": "W 1ST AV"
+                },
+                {
+                    "name": "E 10TH AV",
+                    "count": 363,
+                    "state": "displayed",
+                    "path": "E 10TH AV"
+                },
+                {
+                    "name": "E 61ST AV",
+                    "count": 363,
+                    "state": "displayed",
+                    "path": "E 61ST AV"
+                },
+                {
+                    "name": "W 32ND AV",
+                    "count": 362,
+                    "state": "displayed",
+                    "path": "W 32ND AV"
+                },
+                {
+                    "name": "GRAVELEY ST",
+                    "count": 361,
+                    "state": "displayed",
+                    "path": "GRAVELEY ST"
+                },
+                {
+                    "name": "NAPIER ST",
+                    "count": 356,
+                    "state": "displayed",
+                    "path": "NAPIER ST"
+                },
+                {
+                    "name": "COMMERCIAL ST",
+                    "count": 354,
+                    "state": "displayed",
+                    "path": "COMMERCIAL ST"
+                },
+                {
+                    "name": "E 57TH AV",
+                    "count": 353,
+                    "state": "displayed",
+                    "path": "E 57TH AV"
+                },
+                {
+                    "name": "KITCHENER ST",
+                    "count": 353,
+                    "state": "displayed",
+                    "path": "KITCHENER ST"
+                },
+                {
+                    "name": "W 26TH AV",
+                    "count": 353,
+                    "state": "displayed",
+                    "path": "W 26TH AV"
+                },
+                {
+                    "name": "QUEBEC ST",
+                    "count": 351,
+                    "state": "displayed",
+                    "path": "QUEBEC ST"
+                },
+                {
+                    "name": "E 14TH AV",
+                    "count": 349,
+                    "state": "displayed",
+                    "path": "E 14TH AV"
+                },
+                {
+                    "name": "W 17TH AV",
+                    "count": 347,
+                    "state": "displayed",
+                    "path": "W 17TH AV"
+                },
+                {
+                    "name": "E 16TH AV",
+                    "count": 346,
+                    "state": "displayed",
+                    "path": "E 16TH AV"
+                },
+                {
+                    "name": "PRINCE ALBERT ST",
+                    "count": 344,
+                    "state": "displayed",
+                    "path": "PRINCE ALBERT ST"
+                },
+                {
+                    "name": "E 62ND AV",
+                    "count": 343,
+                    "state": "displayed",
+                    "path": "E 62ND AV"
+                },
+                {
+                    "name": "SW MARINE DRIVE",
+                    "count": 343,
+                    "state": "displayed",
+                    "path": "SW MARINE DRIVE"
+                }
+            ]
+        }
+    ]
+}

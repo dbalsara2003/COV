@@ -32,13 +32,45 @@ gis = GIS()
 # with open("tamim.json", "w") as f:
 #     json.dump(data, f, indent=4)
 
-civics = {}
+
+
+#Code below is to find the number of unique civic numbers in the data
+# civics = {}
+
+# for record in data["records"]:
+    
+#     fields = record["fields"]
+    
+#     if "civic_number" in fields:
+#         if fields["civic_number"] not in civics:
+#             civics[fields["civic_number"]] = 1
+#         else:
+#             civics[fields["civic_number"]] += 1
+        
+    
+    
+# print(data["records"][6000]["fields"]["civic_number"])
+            
+# print(len(civics.keys()))
+
+
+#Code below is to find the number of lists of coordinates in every record and count them
+#Also sorts the dictionary by the number of coordinates in the list
+
+coord_lens = {}
 
 for record in data["records"]:
-    civic = record["fields"]["civic_number"]
-    if civic not in civics:
-        civics[civic] = 1
+    
+    coords = record["fields"]["geom"]["coordinates"]
+    
+    length = len(coords[0])
+    
+    if not str(length) in coord_lens:
+        coord_lens[str(length)] = 1
     else:
-        civics[civic] += 1
-            
-print(civics)
+        coord_lens[str(length)] += 1
+
+coord_lens = dict(sorted(coord_lens.items(), key=lambda item: int(item[0])))
+
+for key, value in coord_lens.items():
+    print(f"KEY: {key} VALUE: {value}")
