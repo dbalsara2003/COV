@@ -1,12 +1,13 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-@app.route('/home')
-def hello():
-    return 'Welcome to the Measurement Tool Page.'
+# This is the home page thats in templates folder
+@app.route('/')
+def home():
+    return render_template('index.html')
 
-@app.route('/check_file')
-def check_file_page():
+@app.route('/manual')
+def manual():
     return render_template('check_file.html')
 
 @app.route('/check_manual')
@@ -15,4 +16,4 @@ def check_manual_page():
 
 
 if __name__ == '__main__':
-    app.run(port=8080)
+    app.run(port=80)

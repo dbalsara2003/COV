@@ -8,42 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
     <link href="CSS/style.css" rel="stylesheet">
-<html>
-<head>
-    <title>Floor Area Estimates</title>
+    <title>Welcome</title>
 </head>
-<body>
-    <h1>Floor Area Estimates</h1>
-    <table>
-        <tr>
-            <th>Property ID</th>
-            <th>Estimated Floor Area</th>
-            <th>Actual Floor Area</th>
-            <th>Difference</th>
-        </tr>
-        {% for property in properties %}
-        <tr>
-            <td>{{ property.id }}</td>
-            <td>{{ property.estimated_floor_area }}</td>
-            <td>{{ property.actual_floor_area }}</td>
-            <td>{{ property.difference }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <div id="map"></div>
-    <script>
-        // Use the ArcGIS API to display the map
-        var map = new Map("map", {
-            basemap: "satellite",
-            center: [{{ properties[0].longitude }}, {{ properties[0].latitude }}],
-            zoom: 15
-        });
+<main>
+    <nav class="navbar">
+        <h1 class="header">
+            <a href="check_file.html">Submit Link</a>
+            <a href=localhost:8080/manual>Submit Manual Data</a>
+        </h1>
+    </nav>
 
-        // Add the estimated floor area as a feature layer on the map
-        var featureLayer = new FeatureLayer({
-            url: "{{ feature_layer_url }}"
-        });
-        map.add(featureLayer);
-    </script>
-</body>
+    <button class="newnote"
+            type="button">
+        Welcome to the Measurement Tool
+    </button>
+</main>
+<footer>
+    created by Vancouver Viceroys
+</footer>   
 </html>
