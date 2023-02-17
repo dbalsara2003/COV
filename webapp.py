@@ -14,6 +14,6 @@ def manual():
 def check_manual_page():
     return "This page will be for inputting values for a single row needing to be estimated."
 
-
+#this needs to change to port 80 when we deploy on docker
 if __name__ == '__main__':
-    app.run(port=80)
+    app.run(host='0.0.0.0', port=8080, debug=True)
