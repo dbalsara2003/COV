@@ -29,8 +29,10 @@ gis = GIS()
 #     df.at[index, 'image_metadata'] = image_metadata
 
 
-with open("tamim.json", "w") as f:
-    json.dump(data, f, indent=4)
+#Code below is to get 10000 records from the API and save them to a json file
+
+# with open("tamim.json", "w") as f:
+#     json.dump(data, f, indent=4)
 
 
 #Code below is to find the number of unique civic numbers in the data
