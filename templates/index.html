@@ -21,20 +21,8 @@
         </tr>
         {% endfor %}
     </table>
-    <div id="map"></div>
-    <script>
-        // Use the ArcGIS API to display the map
-        var map = new Map("map", {
-            basemap: "satellite",
-            center: [{{ properties[0].longitude }}, {{ properties[0].latitude }}],
-            zoom: 15
-        });
-
-        // Add the estimated floor area as a feature layer on the map
-        var featureLayer = new FeatureLayer({
-            url: "{{ feature_layer_url }}"
-        });
-        map.add(featureLayer);
-    </script>
+    <div id="map">
+        
+    </div>
 </body>
 </html>

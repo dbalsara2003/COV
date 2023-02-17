@@ -32,7 +32,7 @@ class Location:
         self.record_last_updated_date = record_last_updated_date
     
     def __repr__(self):
-        return f'Location: ,{self.location_id},{self.area},{self.address},{self.unit},{self.civic_number},{self.street},{self.address_above_door},{self.business_name},{self.floor_area_sf},{self.last_field_trip_date},{self.record_created_date},{self.record_last_updated_date}'
+        return f'Location {self.oid},{self.location_id},{self.area},{self.address},{self.unit},{self.civic_number},{self.street},{self.address_above_door},{self.business_name},{self.floor_area_sf},{self.last_field_trip_date},{self.record_created_date},{self.record_last_updated_date}'
 
     def get_by_name(self, name):
         return self.business_name == name
