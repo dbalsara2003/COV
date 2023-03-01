@@ -14,7 +14,7 @@
     <h1>File Submission</h1>
     <body>
         <p>Submit CSV File here for floor area</p>
-        <form action="index.html" enctype="multipart/form-data">
+        <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
             <input type="file" id="myFile" name="filename">
             <input type="submit">
         </form>
