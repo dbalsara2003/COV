@@ -4,7 +4,8 @@ from formatfile import csvParse
 import os
 
 upload_folder = './uploaded_files'
-allowed_extensions = {"'csv', 'xml'"}
+allowed_extensions = { 'csv':'.csv', 
+                      'xml':'.xml'}
 
 app = Flask(__name__)
 app.config['upload_folder'] = upload_folder
@@ -18,13 +19,19 @@ def home():
 def manual():
     return render_template('check_file.html')
 
+@app.route('/display/')
+
 @app.route('/check_manual')
 def check_manual_page():
     return "This page will be for inputting values for a single row needing to be estimated."
 
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in allowed_extensions
+def allowed_file(filename:str):
+    # return '.' in filename and \
+    #        filename.rsplit('.', 1)[-1].lower() in allowed_extensions
+    ext = filename.rsplit('.', 1)[-1].lower()
+    if ext in allowed_extensions:
+        if filename.endswith(allowed_extensions[ext]):
+            return True
 
 @app.route('/upload_file', methods = ['GET', 'POST'])
 def upload_file():
@@ -32,13 +39,17 @@ def upload_file():
         #checks if the post request has the file
         f = request.files['filename']
         # f.save(f.filename)
+        new_dir = os.path.join(os.getcwd(), app.config['upload_folder'])
+        if not os.path.exists(new_dir):
+            os.makedirs(app.config['upload_folder'])
         if f and allowed_file(f.filename):
             filename = secure_filename(f.filename)
             f.save(os.path.join(app.config['upload_folder'], filename))
-            return redirect(url_for('display', name=filename))
+            print("File saved")
+            # return redirect(url_for('display', name=filename))
 
-        csvParse(f)
-        return redirect('http://localhost:8080/', code=200)
+        # csvParse(f)
+        return redirect(url_for('home'))
 
 
 #this needs to change to port 80 when we deploy on docker
