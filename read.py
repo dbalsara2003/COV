@@ -20,4 +20,5 @@ df_list = [Location(*row) for row in df.itertuples(index=False, name=None)]
 #for i in df_list:
 #    print(str(i).split(',')[4],str(i).split(',')[9])
 
-print(df_list[69])
+#print(df_list[69])
+print(df_list[1].address)

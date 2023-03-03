@@ -19,8 +19,6 @@ def home():
 def manual():
     return render_template('check_file.html')
 
-@app.route('/display/')
-
 @app.route('/check_manual')
 def check_manual_page():
     return "This page will be for inputting values for a single row needing to be estimated."
@@ -46,12 +44,18 @@ def upload_file():
             filename = secure_filename(f.filename)
             f.save(os.path.join(app.config['upload_folder'], filename))
             print("File saved")
+            print(f)
+            dataframe = (csvParse(f))
+            print(dataframe)
+            #call Ml methods here
             # return redirect(url_for('display', name=filename))
-
-        # csvParse(f)
         return redirect(url_for('home'))
+
+def process_data(dataframe):
+    print(dataframe)
+
 
 
 #this needs to change to port 80 when we deploy on docker
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=80, debug=True)
