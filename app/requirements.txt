@@ -1,0 +1,6 @@
+arcgis
+numpy
+json
+csv
+chardet
+requests
