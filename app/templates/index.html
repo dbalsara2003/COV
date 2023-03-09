@@ -6,24 +6,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.google.com/specimen/Tilt+Warp" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/style.css') }}">
-    <title>Welcome</title>
+    <title>Welcome to the Measurement Tool</title>
 </head>
 <main>
+    <header>
+        <h1>Welcome to the Measurement Tool for Vancouver Storefronts</h1>
+            <p>This tool will take in a submitted file and return a calculated storefront sizing</p>
+    </header>
+
     <nav class="navbar">
         <h1 class="header">
             <a href="{{ url_for('manual') }}">Submit Manual Data</a>
             <a href=#>Submit Link</a>
         </h1>
     </nav>
-
-    <button class="newnote"
-            type="button">
-        Welcome to the Measurement Tool
-    </button>
 </main>
 <footer>
-    created by Vancouver Viceroys
+    <p>Created by Vancouver Viceroys</p>
 </footer>   
 </html>

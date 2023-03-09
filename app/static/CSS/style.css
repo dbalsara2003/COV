@@ -1,5 +1,21 @@
 * {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Tilt Warp', sans-serif;
+}
+
+header{
+    position:fixed;
+    width: 100%;
+    text-align: center;
+}
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background-color:#FFFF00;
+    padding:20px; */
+
+main {
+    text-align: center;
 }
 
 footer {
@@ -15,69 +31,66 @@ html {
 
 h1 {
     color:#000080 ;
-    max-width: 650px;
 }
 
 p {
-    font-family: 'EB Garamond', serif;
-    color: #232136;
+    color: #000080 ;
 }
 
-.navbar{
+/* .navbar{
     display: flex;
     list-style-type: none;
     justify-content: right;
     align-items: stretch;
     flex-direction: row;
     text-align: right;
-}
+} */
 
-.navbar a {
+/* .navbar a {
     text-decoration: none;
     margin-right: 15px;
     font-size:25px;
     color:#3e8fb0;
-}
+} */
 
-.navbar a:hover {
+/* .navbar a:hover {
     color:#232136;
-}
+} */
 
-button {
+/* button {
     border: 0;
     background-color:#faf4ed;
     color: #3e8fb0;
     font-size: 35px;
     text-align:center;
-}
-
+} */
+/* 
 button:hover {
     color: #232136;
-}
+} */
 
-
-ul {
+/* ul {
     list-style-type: none;
     margin:0;
     padding:0;
-}
+} */
 
-.entirepage {
+/* .entirepage {
     display:flex;
     flex-direction: row;
     height: 100vw;
-}
+} */
 
-.textbox_area{
+/* .textbox_area{
     margin: auto;
     width: 50%;
     padding-top: 10%;
     display:flex;
     flex-direction: row;
-}
+} */
 
-@media screen and (max-width:600px) {
-    .textbox_area{
-        padding-left: 30px
+@media screen and (min-width:768px) {
+    header{
+        padding: 40px
     }
 }
