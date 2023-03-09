@@ -11,17 +11,18 @@
     <title>Welcome to the Measurement Tool</title>
 </head>
 <main>
+    <nav class="navbar">
+        <h1>
+            <a href="{{ url_for('manual')}}">Submit Manual Data</a>
+            <a href=#>Submit Link</a>
+        </h1>
+    </nav>
+    
     <header>
         <h1>Welcome to the Measurement Tool for Vancouver Storefronts</h1>
             <p>This tool will take in a submitted file and return a calculated storefront sizing</p>
     </header>
 
-    <nav class="navbar">
-        <h1 class="header">
-            <a href="{{ url_for('manual') }}">Submit Manual Data</a>
-            <a href=#>Submit Link</a>
-        </h1>
-    </nav>
 </main>
 <footer>
     <p>Created by Vancouver Viceroys</p>
