@@ -5,7 +5,7 @@ from arcgis.gis import GIS
 ## property data goes here
 url = 'https://opendata.vancouver.ca/api/records/1.0/search/?dataset=storefronts-inventory&q=&facet=retail_category&facet=year_recorded&facet=geo_local_area&facet=geo_m'
 
-response = requests.get(url)
+response = requests.get(url) 
 data = response.json()
 df = pd.DataFrame(data)
 
