@@ -1,5 +1,5 @@
 arcgis
-numpy
+numpy==1.24.1
 json
 csv
 chardet
