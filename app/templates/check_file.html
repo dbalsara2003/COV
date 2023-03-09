@@ -11,12 +11,15 @@
     <head>
         <title>Floor Area Estimates</title>
     </head>
-    <h1>File Submission</h1>
-    <body>
-        <p>Submit CSV File here for floor area</p>
-        <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
-            <input type="file" id="myFile" name="filename">
-            <input type="submit">
-        </form>
-    </body>
+    <header>
+        <h1>File Submission</h1>
+            <p>Submit CSV File here for floor area</p>
+            <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+                <input type="file" id="myFile" name="filename">
+                <input type="submit">
+            </form>
+    </header>
+    <footer>
+        <p>Created by Vancouver Viceroys</p>
+    </footer>
 </html>
