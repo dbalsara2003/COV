@@ -1,6 +1,6 @@
 # import json
 
-# with open("centroids.json", "r") as f:
+# with open("./data/centroids.json", "r") as f:
 #     data = json.load(f)
     
 # small_centr = data["centroids"][:1000]
@@ -10,7 +10,7 @@
 # with open("small_centroidos.json", "w") as f:
 #     json.dump(small_centroids, f, indent=4)
     
-# with open("coordinates.json", "r") as f:
+# with open("./data/coordinates.json", "r") as f:
 #     data = json.load(f)
 
 # small_coords = data["coordinates"][:10000]
