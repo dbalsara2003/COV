@@ -3,6 +3,8 @@ import pandas as pd
 from arcgis.gis import GIS
 import json
 
+
+
 ## property data goes here
 url = 'https://opendata.vancouver.ca/api/records/1.0/search/?dataset=property-parcel-polygons&q=&rows=10000&facet=streetname'
 
@@ -58,20 +60,20 @@ gis = GIS()
 #Code below is to find the number of lists of coordinates in every record and count them
 #Also sorts the dictionary by the number of coordinates in the list
 
-coord_lens = {}
+# coord_lens = {}
 
-for record in data["records"]:
+# for record in data["records"]:
     
-    coords = record["fields"]["geom"]["coordinates"]
+#     coords = record["fields"]["geom"]["coordinates"]
     
-    length = len(coords[0])
+#     length = len(coords[0])
     
-    if not str(length) in coord_lens:
-        coord_lens[str(length)] = 1
-    else:
-        coord_lens[str(length)] += 1
+#     if not str(length) in coord_lens:
+#         coord_lens[str(length)] = 1
+#     else:
+#         coord_lens[str(length)] += 1
 
-coord_lens = dict(sorted(coord_lens.items(), key=lambda item: int(item[0])))
+# coord_lens = dict(sorted(coord_lens.items(), key=lambda item: int(item[0])))
 
-for key, value in coord_lens.items():
-    print(f"KEY: {key} VALUE: {value}")
+# for key, value in coord_lens.items():
+#     print(f"KEY: {key} VALUE: {value}")
