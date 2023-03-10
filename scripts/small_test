@@ -1,0 +1,206 @@
+# import json
+# from shapely.geometry import Polygon, Point
+
+# with open("point_coordinate_matches.json", "r") as f:
+#     coordinates = json.load(f)
+
+# all = len(coordinates)
+# success = 0
+
+
+# for key, value in coordinates.items():
+#     centr = value["centroid"]
+#     coords = value["coordinates"]
+    
+#     point = Point(centr)
+#     polygon = Polygon(coords)
+    
+#     if polygon.contains(point):
+#         success += 1
+        
+# print(f"Success: {success}")
+# print(f"Fail: {all - success}")
+# print(f"Success rate: {(success / all) * 100}%")
+
+### THE ABOVE CODE SAVED ALL THE MATCHES IN A JSON FILE ###
+###########################################################
+###########################################################
+###########################################################
+
+# import json
+# from shapely.geometry import Polygon, Point
+
+# with open("point_coordinate_matches.json", "r") as f:
+#     coordinates = json.load(f)
+
+# with open("./data/centroids.json", "r") as f:
+#     centroids = json.load(f)["centroids"]
+#     print("Centroids loaded")
+#     print(f"Centroids: {len(centroids)}")
+    
+# matched_centroids = []
+
+# for key, value in coordinates.items():
+#     centr = value["centroid"]
+#     matched_centroids.append(centr)
+    
+# print(f"Matched centroids: {len(matched_centroids)}")
+    
+# new_centroids = {"centroids_left": []}
+
+# for centroid in centroids:
+#     if centroid not in matched_centroids:
+#         new_centroids["centroids_left"].append(centroid)
+        
+    
+# print(len(new_centroids["centroids_left"])) 
+
+
+### THE ABOVE CODE CHECKS HOW MANY CENTROIDS ARE LEFT AFTER UNMATCHED ###
+#######################################################################
+#######################################################################
+#######################################################################
+
+# import json
+# from functools import lru_cache
+
+# with open("./data/centroids.json", "r") as f:
+#     centroids = json.load(f)["centroids"]
+#     print("Centroids loaded")
+#     print(f"Centroids: {len(centroids)}")
+    
+# repeating_centroids = [{i: None} for i in range(1, 3398)]
+# print(len(repeating_centroids))
+
+# unique_centroids = []
+
+# for centroid in centroids:
+#     if centroid not in unique_centroids:
+#         unique_centroids.append(centroid)
+        
+# print(len(unique_centroids))
+
+# for num, centroid in enumerate(unique_centroids):
+#     repeating_centroids[num][num+1] = {
+#         "centroid": centroid,
+#         "count": centroids.count(centroid)
+#     }
+
+# with open("unique_centroids.json", "w") as f:
+#     json.dump(repeating_centroids, f, indent=4)
+
+### THE ABOVE CODE SAVES ALL THE UNIQUE CENTROIDS AND HOW MANY TIMES THEY ARE REPEATED IN A JSON FILE###
+####################################################################################################
+####################################################################################################
+####################################################################################################
+####################################################################################################
+
+# import json
+# from functools import lru_cache
+
+# with open("./data/coordinates.json", "r") as f:
+#     coordinates = json.load(f)["coordinates"]
+#     print("Coordinates loaded")
+#     print(f"Coordinates: {len(coordinates)}")
+
+# @lru_cache(maxsize=None)
+# def repeating_coord(coord, repeated):
+#     for coordinate in repeated:
+#         if coord == coordinate:
+#             return True
+#     return False
+
+# repeating_coordinates = []
+
+# index = 0
+
+# for coord in coordinates:
+#     if not repeating_coord(coord, repeating_coordinates):
+#         repeating_coordinates.append(coord)
+#     if index % 1000 == 0:
+#         print(f"Index: {index}")
+
+# print(len(repeating_coordinates))
+
+
+# import json
+
+# with open("unique_centroids.json", "r") as f:
+#     centroids = json.load(f)
+    
+# with open("point_coordinate_matches.json", "r") as f:
+#     matches = json.load(f)
+    
+# print("DATA LOADED")
+# print(len(centroids))
+# print(len(matches))
+# print("STARTING")
+
+# only_centroids = []
+
+# for item in centroids:
+#     for key, value in item.items():
+#         only_centroids.append(value["centroid"])
+
+# unique_matched_centroids = []
+
+# for key, value in matches.items():
+#     if value["centroid"] not in unique_matched_centroids:
+#         unique_matched_centroids.append(value["centroid"])
+        
+# matched_centroids_polygons = []
+
+# for key, value in matches.items():
+#     if value["centroid"] in unique_matched_centroids:
+#         if value not in matched_centroids_polygons:
+#             matched_centroids_polygons.append(value)
+
+# for entry in centroids:
+#     for key, value in entry.items():
+#         #If the value for the centroid is in the matched_centroids_polygons list
+#         #Then append the coordinates to the current dictionary of the centroid         
+#         for match in matched_centroids_polygons:
+#             if value["centroid"] == match["centroid"]:
+#                 value["coordinates"] = match["coordinates"]
+#                 break
+
+# with open("centroids_with_polygons.json", "w") as f:
+#     json.dump(centroids, f, indent=4)
+
+
+### THE ABOVE CODE SAVES ALL THE CENTROIDS WITH THEIR COUNT AND POLYGONS IN A JSON FILE ###
+########################################################################################
+########################################################################################
+########################################################################################
+
+
+import json
+from shapely.geometry import Polygon, Point
+
+with open("centroids_with_polygons.json", "r") as f:
+    centroids = json.load(f)
+    
+all = len(centroids)
+success = 0
+has_coord = 0
+
+for item in centroids:
+    for key, value in item.items():
+        
+        if "coordinates" not in value:
+            continue
+        
+        has_coord += 1
+        centroid = value["centroid"]
+        coords = value["coordinates"]
+        
+        point = Point(centroid)
+        polygon = Polygon(coords)
+        
+        if polygon.contains(point):
+            success += 1
+            
+
+print(f"Entries that have coordinates: {has_coord}")
+print(f"Success: {success}")
+print(f"All: {all}")
