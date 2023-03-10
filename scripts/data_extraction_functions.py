@@ -463,7 +463,6 @@ def calculate_area_of_storefronts():
     for item in centroids_with_polygons:
         for key, value in item.items():
             
-            current_centroid = value["centroid"]
             current_count = value["count"]
             current_coords = value["coordinates"]
             
