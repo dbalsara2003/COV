@@ -442,3 +442,75 @@ def fix_indices_in_centroids_with_polygons():
 #########################################################################################
 #########################################################################################
 
+
+def calculate_area_of_storefronts():
+    import json
+    from math import ceil
+
+    from functools import partial
+
+    import pyproj
+    from shapely.geometry import Polygon
+    import shapely.ops as ops
+
+
+    with open("centroids_with_polygons.json", "r") as f:
+        centroids_with_polygons = json.load(f)
+
+    magic_number = 0.00099
+
+    for item in centroids_with_polygons:
+        for key, value in item.items():
+            
+            current_centroid = value["centroid"]
+            current_count = value["count"]
+            current_coords = value["coordinates"]
+            
+            total_area_sm = 0
+            total_area_sf = 0
+            average_area_per_storefront_sf = 0
+            
+            polygon = Polygon(current_coords)
+            
+            geom_area = ops.transform(
+                partial(
+                    pyproj.transform,
+                    pyproj.Proj(init='EPSG:4326'),
+                    pyproj.Proj(proj="aea",
+                                lat_1=polygon.bounds[1],
+                                lat_2=polygon.bounds[3])),
+                polygon
+            )
+            
+            total_area_sm = ceil(geom_area.area/1.00099)
+            total_area_sf = ceil(geom_area.area/1.00099*10.7639104)
+            average_area_per_storefront_sf = ceil(total_area_sf/current_count)
+            
+            #Update the current dictionary by adding the new keys and values
+            
+            value.update({
+                "total_area_sm": total_area_sm,
+                "total_area_sf": total_area_sf,
+                "average_area_per_storefront_sf": average_area_per_storefront_sf
+            })
+
+    #Write the changes to the file
+
+    with open("centroids_with_polygons.json", "w") as f:
+        json.dump(centroids_with_polygons, f, indent=4)
+        
+### THE ABOVE CODE CALCULATES THE AREA OF EACH POLYGON AND THE AVERAGE AREA PER STOREFRONT ###
+#############################################################################################
+
+                        ###### DISCLAIMER ######
+                     
+### THIS CODE RUNS FINE BUT YOUR TERMINAL WILL BE SPAMMED WITH WARNINGS ###
+### THIS IS BECAUSE SOME OF THE FUNCTIONS IN USE ARE DEPRECATED ###
+### DON'T WORRY ABOUT IT, THE FUNCTION SHOULD ALWAYS BE RNNING FINE AND GIVING THE SAME OUTPUT ###
+
+                     ###### END OF DISCLAIMER ######
+                     
+#############################################################################################
+#############################################################################################
+#############################################################################################
+
