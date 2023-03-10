@@ -404,3 +404,27 @@
 ####################################################################################
 ####################################################################################
 
+# import json
+
+# with open("centroids_with_polygons.json", "r") as f:
+#     centroids_with_polygons = json.load(f)
+
+# fixed_indices = [i for i in range(1, 3397)]
+# fixed_indices = fixed_indices[::-1]
+
+# fixed_data = []
+
+# for entry in centroids_with_polygons:
+#     for key, value in entry.items():
+#         to_append = {
+#             fixed_indices.pop(): value
+#         }
+#         fixed_data.append(to_append)
+
+# with open("centroids_with_polygons.json", "w") as f:
+#     json.dump(fixed_data, f, indent=4)
+
+### THE ABOVE CODE JUST FIXED THE INDICES OF THE ENTRIES IN THE CENTROID POLYGON FILE ###
+#########################################################################################
+#########################################################################################
+#########################################################################################
