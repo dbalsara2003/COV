@@ -456,7 +456,8 @@ def calculate_area_of_storefronts():
 
     with open("centroids_with_polygons.json", "r") as f:
         centroids_with_polygons = json.load(f)
-
+    
+    #This variable is the ratio that fixes the difference between actual area and area calculated by shapely
     magic_number = 0.00099
 
     for item in centroids_with_polygons:
@@ -482,8 +483,8 @@ def calculate_area_of_storefronts():
                 polygon
             )
             
-            total_area_sm = ceil(geom_area.area/1.00099)
-            total_area_sf = ceil(geom_area.area/1.00099*10.7639104)
+            total_area_sm = ceil(geom_area.area/magic_number)
+            total_area_sf = ceil(geom_area.area/magic_number*10.7639104)
             average_area_per_storefront_sf = ceil(total_area_sf/current_count)
             
             #Update the current dictionary by adding the new keys and values
