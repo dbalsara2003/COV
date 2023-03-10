@@ -39,7 +39,6 @@ def add_id(polypoint, output):
         array[1] = array[1].replace('""', '"')[1:-1]
         array[1] = str(tuple(json.loads(array[1])['coordinates']))
         ids[index] = array
-    final_lines = []
     with open(output, mode='a+') as f:
         for count, line in enumerate(new_lines):
             if count == 0:
@@ -90,4 +89,37 @@ def make_storefronts_with_polys(input, output):
                 row_str += ';' + str(bit)
             f.write(row_str[1:] + '\n')
     return final_lines
+
+def update_polygons(file):
+    with open('./centroids_with_polygons.json', mode='r') as f:
+        centroids = json.load(f)
+    
+    storefront_lines = []
+    with open(f'./data/{file}', mode='r+') as f:
+        lines = f.readlines()
+        for line in lines:
+            storefront_lines.append(line.replace('\n','').split(';'))
+
+    with open(f'./data/{file}', mode='w') as f:
+        final_lines = []
+        for count, line in enumerate(storefront_lines):
+            if count == 0:
+                continue
+            #print("LINE", line)
+            line[8] = line[8].replace('""', '"')[1:-1]
+            line[8] = str(json.loads(line[8])['coordinates'])
+            for item in centroids:
+                 for key, value in item.items():
+                    if str(line[8]) == str(value['centroid']):
+                        print(line[8], '=', value['centroid'])
+                        line[10] = value['coordinates']
+                        final_lines.append(line)
+                        break
+        print(len(final_lines))
+        for line in final_lines:
+            print(line)
+            row_str = ""
+            for bit in line:
+                row_str += ';' + str(bit)
+            f.write(row_str[1:] + '\n')
         
