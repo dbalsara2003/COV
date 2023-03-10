@@ -174,33 +174,233 @@
 ########################################################################################
 
 
-import json
-from shapely.geometry import Polygon, Point
+# import json
+# from shapely.geometry import Polygon, Point
 
-with open("centroids_with_polygons.json", "r") as f:
-    centroids = json.load(f)
+# with open("centroids_with_polygons.json", "r") as f:
+#     centroids = json.load(f)
     
-all = len(centroids)
-success = 0
-has_coord = 0
+# all = len(centroids)
+# success = 0
+# has_coord = 0
 
-for item in centroids:
-    for key, value in item.items():
+# for item in centroids:
+#     for key, value in item.items():
         
-        if "coordinates" not in value:
-            continue
+#         if "coordinates" not in value:
+#             continue
         
-        has_coord += 1
-        centroid = value["centroid"]
-        coords = value["coordinates"]
+#         has_coord += 1
+#         centroid = value["centroid"]
+#         coords = value["coordinates"]
         
-        point = Point(centroid)
-        polygon = Polygon(coords)
+#         point = Point(centroid)
+#         polygon = Polygon(coords)
         
-        if polygon.contains(point):
-            success += 1
+#         if polygon.contains(point):
+#             success += 1
             
 
-print(f"Entries that have coordinates: {has_coord}")
-print(f"Success: {success}")
-print(f"All: {all}")
+# print(f"Entries that have coordinates: {has_coord}")
+# print(f"Success: {success}")
+# print(f"All: {all}")
+
+
+#### THE ABOVE CODE CONFIRMS ALL CENTROIDS THAT HAVE POLYGONS ARE WITHIN THE POLYGON ####
+######################################################################################
+######################################################################################
+######################################################################################
+
+
+# import json
+# from shapely.geometry import Polygon, Point
+
+# with open("centroids_with_polygons.json", "r") as f:
+#     centroids_with_polygons = json.load(f)
+    
+# print("DATA LOADED")
+
+# no_polygon = []
+
+# for item in centroids_with_polygons:
+#     for key, value in item.items():
+#         if "coordinates" not in value:
+#             no_polygon.append(value["centroid"])
+
+# no_polygon_json = []
+
+# for i in range(1, len(no_polygon)+1):
+#     to_append = {
+#         i: {
+#             "centroid": no_polygon[i-1],
+#         }
+#     }
+    
+#     no_polygon_json.append(to_append)
+
+# with open("./data/polygons.json", "r") as f:
+#     coordinates = json.load(f)["coordinates"]
+
+# actual_coords = []
+        
+# for coordinate in coordinates:
+#     if isinstance(coordinate[0][0], list):
+#         coordinate = list(list(coord) for coord in coordinate[0])
+#     actual_coords.append(coordinate)
+    
+# coordinates = actual_coords
+
+# for i, centroid in enumerate(no_polygon):
+#     point = Point(centroid)
+    
+#     print(f"Index: {i+1} out of {len(no_polygon)}")
+    
+#     for coordinate in coordinates:
+#         polygon = Polygon(coordinate)
+        
+#         if polygon.contains(point):
+#             no_polygon_json[i][i+1]["coordinates"] = coordinate
+#             break
+
+# with open("centroids_without_polygons.json", "w") as f:
+#     json.dump(no_polygon_json, f, indent=4)
+
+#### THE ABOVE CODE FINDS THE POLYGONS FOR THE CENTROIDS THAT DON'T HAVE POLYGONS ####
+##################################################################################
+##################################################################################
+##################################################################################
+
+# import json
+# from shapely.geometry import Polygon, Point
+
+# with open("centroids_without_polygons.json", "r") as f:
+#     centroids_without_polygons = json.load(f)
+    
+# all = len(centroids_without_polygons)
+
+# has_coordinate = 0
+
+# for item in centroids_without_polygons:
+#     for key, value in item.items():
+#         if "coordinates" in value:
+#             has_coordinate += 1
+#         else:
+#             print(value)
+            
+# print(f"Has coordinate: {has_coordinate}")
+# print(f"All: {all}")
+
+# with open("./data/polygons.json", "r") as f:
+    # coordinates = json.load(f)["coordinates"]
+    
+# actual_coords = []
+
+# for coordinate in coordinates:
+#     if isinstance(coordinate[0][0], list):
+#         coordinate = list(list(coord) for coord in coordinate[0])
+#     actual_coords.append(coordinate)
+
+# point = [-123.09983012512932, 49.27294592860098]
+
+# for coordinate in actual_coords:
+#     polygon = Polygon(coordinate)
+#     point = Point(point)
+#     if polygon.contains(point):
+#         print("YES")
+#         break
+# else:
+#     print("NO POLYGON FOR THIS POINT")
+
+
+### THE ABOVE CODE CONFIRMS ALL THE NEW CENTROIDS HAVE POLYGONS ###
+### IT ALSO CONFIRMS THAT THERE IS ONLY ONE CENTROID WITH NO POLYGON ###
+#####################################################################
+#####################################################################
+#####################################################################
+
+
+# import json
+
+# with open("centroids_with_polygons.json", "r") as f:
+#     centroids_with_polygons = json.load(f)
+    
+# with open("centroids_without_polygons.json", "r") as f:
+#     centroids_without_polygons = json.load(f)
+
+# for item in centroids_without_polygons:
+#     for key, value in item.items():
+        
+#         stop = False
+        
+#         if "coordinates" not in value:
+#             continue
+        
+#         to_append = {
+#             "coordinates": value["coordinates"],
+#         }
+        
+#         for centroid in centroids_with_polygons:
+#             for key2, value2 in centroid.items():
+#                 if value["centroid"] == value2["centroid"]:
+#                     value2.update(to_append)
+#                     stop = True
+#                     break
+#             if stop:
+#                 break
+
+# has_coords = 0
+# original_with_coords = 2604
+
+# for item in centroids_with_polygons:
+#     for key, value in item.items():
+#         if "coordinates" in value:
+#             has_coords += 1
+
+# print(f"Original with coords: {original_with_coords}")
+# print(f"New with coords: {has_coords}")
+
+# with open("centroids_with_polygons.json", "w") as f:
+#     json.dump(centroids_with_polygons, f, indent=4)
+
+### THE ABOVE CODE ADDS THE POLYGONS TO THE CENTROIDS THAT HAD NO POLYGONS ###
+###########################################################################
+###########################################################################
+###########################################################################
+
+
+# import json
+# from shapely.geometry import Polygon, Point
+
+# with open("centroids_with_polygons.json", "r") as f:
+#     centroids_with_polygons = json.load(f)
+    
+# full_success = 0
+# target = 3396
+    
+# for item in centroids_with_polygons:
+#     for key, value in item.items():
+#         if "coordinates" not in value:
+#             continue
+        
+#         point = Point(value["centroid"])
+#         polygon = Polygon(value["coordinates"])
+        
+#         if point.within(polygon):
+#             full_success += 0.5
+            
+#         if polygon.contains(point):
+#             full_success += 0.5
+            
+# print(f"Success: {full_success}")
+# print(f"Target: {target}")
+
+# if full_success == target:
+#     print("GG LET'S FUCKING GOOOOOO")
+
+
+### THE ABOVE CODE CONFIRMS THAT ALL THE CENTROIDS HAVE POLYGONS AND ARE WITHIN THEM ###
+####################################################################################
+####################################################################################
+####################################################################################
+####################################################################################
+
