@@ -29,6 +29,11 @@ h1 {
 
 p {
     color: #000080 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
 }
 
 .navbar{
