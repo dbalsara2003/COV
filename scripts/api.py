@@ -20,6 +20,21 @@ store_list = Stores_list()
 ### SETTING THE EMPTY LIST EQUAL TO A LIST OF STORES 
 ### WITH THE DATA FROM THE RECORDS SECTION
 
+# geom = [record['fields']['geom']['coordinates'] for record in records]
+
+# centroids = [record['fields']['geom']['coordinates'] for record in records]
+
+# with open('centroids.json', 'w') as f:
+#     json.dump(centroids, f)
+
+count = 0
+
+with open('centroids.json', 'r') as f:
+    centroids = json.load(f)
+    for geo in range(len(centroids)):
+        count += 1
+    print(count)
+
 store_list.stores = [Store(record['datasetid'], 
 record['recordid'],
 record['fields']['geom']['coordinates'],
@@ -41,17 +56,25 @@ record['record_timestamp']
 
 ### TESTING TO SEE IF ALL ENTRIES ARE SAVED BY 
 ### PRINTING THE LENGTH OF THE LIST AND COMPARING IT TO THE ROWS PARAMETER
-print(len(store_list.stores) == ROWS)
+# print(len(store_list.stores) == ROWS)
 
-### TESTING THE GET_BY_NAME METHOD
-print(len(store_list.get_by_name('Starbucks')))
+# ### TESTING THE GET_BY_NAME METHOD
+# print(len(store_list.get_by_name('Starbucks')))
 
-### TESTING THE GET_BY_CATEGORY METHOD
-print(len(store_list.get_by_category('Convenience Goods')))
+# ### TESTING THE GET_BY_CATEGORY METHOD
+# print(len(store_list.get_by_category('Convenience Goods')))
 
-### TESTING THE GET_BY_AREA METHOD
-print(len(store_list.get_by_area('Kits')))
+# ### TESTING THE GET_BY_AREA METHOD
+# print(len(store_list.get_by_area('Kits')))
 
-st = store_list.get_by_name('Starbucks')
+# st = store_list.get_by_name('Starbucks')
 
-print(st[0])
+# coordinates = []
+
+# for i in range(len(store_list.stores)):
+#     coordinates.append(store_list.stores[i].coordinates)
+
+# for i in range(0,10):
+#     print(coordinates[i])
+
+# print(st[0])

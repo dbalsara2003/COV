@@ -36,3 +36,64 @@ class Location:
 
     def get_by_name(self, name):
         return self.business_name == name
+<<<<<<< Updated upstream:scripts/model.py
+=======
+    
+
+class Stores_list:
+    def __init__(self,stores=[]):
+        self.stores = stores
+
+    def add_store(self,store):
+        self.stores.append(store)
+
+    def get_by_name(self, name):
+        stores = [store for store in self.stores if store.business_name == name or name in store.business_name]
+        return stores
+
+    def get_by_category(self, category):
+        stores = [store for store in self.stores if store.retail_category == category or category in store.retail_category]
+        return stores
+
+    def get_by_area(self, area):
+        stores = [store for store in self.stores if store.geo_local_area == area or area in store.geo_local_area]
+        return stores
+
+    def get_by_civic_number(self, civic_number):
+        stores = [store for store in self.stores if store.civic_number_parcel == civic_number]
+        return stores
+
+    def __repr__(self) -> str:
+        return f"{self.stores}"
+
+    def __str__(self):
+        return f"A List of stores with {len(self.stores)} entries"
+    
+class Store:
+    def __init__(self, datasetid, recordid, coordinates, unit, geo_point_2d, year_recorded, id, street_name_parcel, retail_category, civic_number_parcel, business_name, geo_local_area, type, record_timestamp):
+        self.datasetid = datasetid
+        self.recordid = recordid
+        self.coordinates = coordinates
+        self.unit = unit
+        self.geo_point_2d = geo_point_2d
+        self.year_recorded = year_recorded
+        self.id = id
+        self.street_name_parcel = street_name_parcel
+        self.retail_category = retail_category
+        self.civic_number_parcel = civic_number_parcel
+        self.business_name = business_name
+        self.geo_local_area = geo_local_area
+        self.type = type
+        self.record_timestamp = record_timestamp
+
+    def basic_info(self):
+        return f"Business name: {self.business_name}, Retail category: {self.retail_category}, located at {self.civic_number_parcel} {self.street_name_parcel} in {self.geo_local_area}"
+
+    def __str__(self) -> str:   
+        return f"DataSet ID: {self.datasetid}, RecordID: {self.recordid}, Coordinates: {self.coordinates} Business name: {self.business_name}, Retail category: {self.retail_category}, located at {self.civic_number_parcel} {self.street_name_parcel} in {self.geo_local_area}"
+
+    def __repr__(self) -> str:
+        return f"{self.datasetid}, {self.recordid}, {self.coordinates}, {self.unit}, {self.geo_point_2d}, {self.year_recorded}, {self.id}, {self.street_name_parcel}, {self.retail_category}, {self.civic_number_parcel}, {self.business_name}, {self.geo_local_area}, {self.type}, {self.record_timestamp}"
+
+
+>>>>>>> Stashed changes:app/model.py

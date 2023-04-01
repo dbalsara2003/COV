@@ -15,8 +15,15 @@
     <body>
         <p>Submit CSV File here for floor area</p>
         <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
-            <input type="file" id="myFile" name="filename">
+            <input type="file" id="file" name="file">
             <input type="submit">
+            <!-- make a fetch request to an endpoint -->
+            <!-- display loader image  -->
+            <!-- when reply is given by endpoint, replace loader with endpoint -->
+            <!-- serialize form as json for endpoint -->
+            <!-- format on client side to make downloadable file -->
+            <!-- redis task service
+            submit to task servic queue -->
         </form>
     </body>
 </html>
