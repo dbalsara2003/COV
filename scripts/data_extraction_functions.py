@@ -407,7 +407,7 @@ def confirm_all_centroids_have_polygons_final_test():
     print(f"Target: {target}")
 
     if full_success == target:
-        print("GG LET'S FUCKING GOOOOOO")
+        print("GG ")
 
 
 ### THE ABOVE CODE CONFIRMS THAT ALL THE CENTROIDS HAVE POLYGONS AND ARE WITHIN THEM ###
