@@ -59,6 +59,7 @@ def run_ml(df, filename):
 def download_page():
     return render_template('download.html')
 
+## ROUTE FOR DOWNLOAD FILE BUTTON
 @app.route('/download/<filename>')
 def download_csv(df, filename):
     # convert the dataframe to a CSV file and save it to disk
