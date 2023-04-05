@@ -17,6 +17,19 @@
         <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
             <input type="file" id="file" name="file">
             <input type="submit">
+            <!-- <form id="upload-form">
+                <input type="file" id="file" name="file">
+                <button type="submit">Upload</button>
+                <div id="overlay">
+                    <div class="loader"></div>
+                </div>
+            </form>
+            <div id="result-section" style="display:none;">
+                <h2>Result:</h2>
+                <p id="result-data"></p>
+            </div> -->
+              
+
             <!-- make a fetch request to an endpoint -->
             <!-- display loader image  -->
             <!-- when reply is given by endpoint, replace loader with endpoint -->
@@ -25,5 +38,69 @@
             <!-- redis task service
             submit to task servic queue -->
         </form>
+        <!-- <script>
+            const form = document.getElementById('upload-form');
+            const fileInput = document.getElementById('file');
+            const resultSection = document.getElementById('result-section');
+            const resultData = document.getElementById('result-data');
+
+            form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            
+            try {
+                const response = await fetch("{{ url_for('run_ml')}}", {
+                method: 'POST',
+                body: formData
+                });
+                
+                if (response.ok) {
+                const data = await response.json();
+                resultData.textContent = data.result;
+                resultSection.style.display = 'block';
+                // Redirect to a different page
+                window.location.href = "{{ url_for('download_page')}}";
+                } else {
+                console.error('Error:', response.status);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+            });
+
+        </script> -->
+        <style>
+            #overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 9999;
+                display: none;
+            }
+
+            .loader {
+                border: 16px solid #f3f3f3;
+                border-top: 16px solid #3498db;
+                border-radius: 50%;
+                width: 120px;
+                height: 120px;
+                animation: spin 2s linear infinite;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+ 
+        </style>
     </body>
 </html>

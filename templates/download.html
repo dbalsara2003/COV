@@ -13,8 +13,9 @@
     </head>
     <h1>Download</h1>
     <body>
-        <p>Download estimates at csv files</p>
-        <form action="{{ url_for('download_csv'), filename='{{ filename }}' }}" method="POST" enctype="multipart/form-data">
+        <p>Download estimates as csv files</p>
+        <h2>{{ filename }}</h2>
+        <form action="{{ url_for('download_csv') }}" method="POST" enctype="multipart/form-data">
             <input type="submit" value="Download CSV File">
         </form>
     </body>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+   <head>
+      <title>Upload file</title>
+   </head>
+   <body>
+      <h1>Upload a CSV file:</h1>
+      <form action="/upload" method="post" enctype="multipart/form-data">
+         <input type="file" name="file">
+         <input id="btn" type="submit" value="Upload">
+      </form>
+      <div id="overlay">
+        <div class="loader"></div>
+      </div>
+   </body>
+   <script>
+    const button = document.getElementById('btn');
+    const overlay = document.getElementById('overlay');
+
+    button.addEventListener('click', function() {
+    overlay.style.display = 'block';});
+
+    if (document.readyState === 'complete') {
+        overlay.style.display = 'none';
+    }
+   </script>
+   <style>
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        display: none;
+    }
+
+    .loader {
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid #3498db;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+</style>
+</html>
