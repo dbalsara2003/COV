@@ -5,11 +5,28 @@
     <title>Download Page</title>
 </head>
 <body>
-    <h1>Download the Predicted CSV File</h1>
-    <form method="get" action="{{ url_for('download_file') }}">
-        <p>
-            <button type="submit" class="btn">Download</button>
-        </p>
+    <h1>Download Results</h1>
+    <table id="table">
+        {{ df|safe }}
+    </table>
+    <form action="{{ url_for('download_file') }}" method="POST">
+        <input type="hidden" name="tableData" id="tableData">
+        <input type="hidden" name="filename" value="{{ filename }}">
+        <button class="btn btn-primary btn-block" type="submit" id="download-btn">Download</button>
     </form>
 </body>
+<script>
+    const tableData = document.getElementById('tableData');
+    const table = document.getElementById('table');
+
+    tableData.value = table.innerHTML;
+</script>
+<style>
+    table {
+    display: block;
+    height: 500px;
+    overflow-y: scroll;
+    margin-top: 0;
+    }
+</style>
 </html>
