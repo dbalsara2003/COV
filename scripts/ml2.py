@@ -17,6 +17,7 @@ def machine_learning(test_data: pd.DataFrame):
     optimizer = tf.keras.optimizers.Adam(learning_rate=0.001)
 
     # TRAINING DATA
+    # file = './data/new_training4.csv'
     file = './scripts/data/new_training4.csv'
     # file2 = './data/new_training2.csv'
     # TEST DATA
@@ -33,6 +34,11 @@ def machine_learning(test_data: pd.DataFrame):
 
     cols = ["OID_"," id", "floor_area_sf", "civic_number"]
 
+
+
+    test_data = test_data[test_data['floor_area_sf'].isna()]
+    result = test_data
+    test_data = test_data[cols]
     # Load training data
     train_data = pd.read_csv(file, encoding=enc['encoding'], usecols=cols)
     # data2 = pd.read_csv(file2, encoding=enc2['encoding'], usecols=cols)
@@ -55,8 +61,8 @@ def machine_learning(test_data: pd.DataFrame):
     # Compile model
     model.compile(optimizer=optimizer, loss='mae')
 
-    # Train model
-    model.fit(X_train, y_train, epochs=1, batch_size=128, steps_per_epoch=100)
+    # Train model 500 512 100
+    model.fit(X_train, y_train, epochs=1, batch_size=1, steps_per_epoch=1)
 
     # Load test data
     # test_data = pd.read_csv(file3, encoding=enc3['encoding'], usecols=cols)
@@ -69,9 +75,11 @@ def machine_learning(test_data: pd.DataFrame):
     y_pred = model.predict(X_test)
 
     # Add predicted floor area column to test data
-    test_data['floor_area_sf_predicted'] = y_pred
+    result['floor_area_sf_predicted'] = y_pred
 
-    return test_data
+    result.drop(['floor_area_sf'], axis=1, inplace=True)
+
+    return result
 
     # Save test data with predicted floor area column to CSV
     # test_data.to_csv('./data/test_data_predicted.csv', index=False)
