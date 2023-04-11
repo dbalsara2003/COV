@@ -6,27 +6,83 @@
 </head>
 <body>
     <h1>Download Results</h1>
-    <table id="table">
-        {{ df|safe }}
-    </table>
+    <div id="table">
+        <table id="table_sort">
+            {{ df|safe }}
+        </table>
+    </div>
     <form action="{{ url_for('download_file') }}" method="POST">
-        <input type="hidden" name="tableData" id="tableData">
-        <input type="hidden" name="filename" value="{{ filename }}">
-        <button class="btn btn-primary btn-block" type="submit" id="download-btn">Download</button>
+        <!-- <input type="hidden" name="tableData" id="tableData">
+        <input type="hidden" name="filename" value="{{ filename }}"> -->
+        <button class="btn" type="submit" id="download-btn">Download</button>
     </form>
 </body>
-<script>
-    const tableData = document.getElementById('tableData');
-    const table = document.getElementById('table');
-
-    tableData.value = table.innerHTML;
-</script>
 <style>
-    table {
-    display: block;
+body {
+    background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+    color: #222;
+}
+
+#table {
     height: 500px;
     overflow-y: scroll;
-    margin-top: 0;
-    }
+    margin: 2rem auto;
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+table th {
+    background-color: #222;
+    color: #fff;
+    font-weight: bold;
+}
+
+form {
+    text-align: center;
+}
+
+.btn {
+    background-color: #222;
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* #tableData {
+    display: none;
+} */
+
 </style>
 </html>

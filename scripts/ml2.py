@@ -18,7 +18,7 @@ def machine_learning(test_data: pd.DataFrame):
 
     # TRAINING DATA
     # file = './data/new_training4.csv'
-    file = './scripts/data/new_training4.csv'
+    file = './scripts/data/training.csv'
     # file2 = './data/new_training2.csv'
     # TEST DATA
     # file3 = './data/testing.csv'
@@ -33,12 +33,25 @@ def machine_learning(test_data: pd.DataFrame):
     #     enc3 = chardet.detect(f.read())
 
     cols = ["OID_"," id", "floor_area_sf", "civic_number"]
+    cols2 = ["OID_"," id", "floor_area_sf", "civic_number"]
+    
+    for col in test_data.columns.values:
+        if "id" in col:
+            if col == "id":
+                cols2.append(col)
+                cols2.remove(" id")
 
-
+    empty = test_data['floor_area_sf'].isna().any()
+    if not empty:
+        return test_data 
 
     test_data = test_data[test_data['floor_area_sf'].isna()]
     result = test_data
-    test_data = test_data[cols]
+    test_data = test_data[cols2]
+    
+    if test_data['floor_area_sf'].isna().any() == False:
+        return result
+
     # Load training data
     train_data = pd.read_csv(file, encoding=enc['encoding'], usecols=cols)
     # data2 = pd.read_csv(file2, encoding=enc2['encoding'], usecols=cols)
@@ -62,14 +75,18 @@ def machine_learning(test_data: pd.DataFrame):
     model.compile(optimizer=optimizer, loss='mae')
 
     # Train model 500 512 100
-    model.fit(X_train, y_train, epochs=1, batch_size=1, steps_per_epoch=1)
+    model.fit(X_train, y_train, epochs=55, batch_size=32)
 
     # Load test data
     # test_data = pd.read_csv(file3, encoding=enc3['encoding'], usecols=cols)
 
     # Preprocess test data
     X_test = test_data.drop(['floor_area_sf'], axis=1)
-    X_test = X_test.astype(np.float32)
+    X_test_cols = cols2.copy()
+    X_test_cols.remove('floor_area_sf')
+    for col in X_test_cols:
+        X_test[col] = pd.to_numeric(X_test[col], errors='coerce').fillna(0)
+    X_test = X_test.astype('float32')
 
     # Make predictions on test data
     y_pred = model.predict(X_test)

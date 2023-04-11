@@ -13,7 +13,7 @@ from scripts.ml2 import machine_learning
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "test"
-allowed_extensions = {'csv', 'xml'}
+allowed_extensions = {'csv'}
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -29,10 +29,24 @@ def upload_file():
         f = request.files['file']
         filename = secure_filename(f.filename)
 
+        if '.' not in filename or filename.rsplit('.', 1)[1].lower() not in ['csv', 'xlsx']:
+            flash('Invalid file. Please upload a CSV or XLSX file.')
+            return redirect(request.url)
+        
+        if filename.rsplit('.', 1)[1].lower() == 'xlsx':
+            excel_data = pd.read_excel(f)
+            f = StringIO()
+            csv_data = excel_data.to_csv(f,index=False)
+            filename = f"{filename.rsplit('.', 1)[0]}.csv"
+            f.seek(0)
+
         if f and allowed_file(filename):
-            # cols = ["OID_"," id", "floor_area_sf", "civic_number"]
-            # df = pd.read_csv(f, usecols=cols)
-            df = pd.read_csv(f)
+            try:
+                df = pd.read_csv(f)
+
+            except UnicodeDecodeError:
+                df = pd.read_csv(f, encoding='Windows-1252')
+                
             new_df = machine_learning(df)
 
             # Return the predicted data as a downloadable CSV file
