@@ -3,13 +3,11 @@ from werkzeug.utils import secure_filename
 import pandas as pd
 import numpy as np
 import io
-import chardet
-import tensorflow as tf
 import pandas as pd
 import numpy as np
 from datetime import date
 from io import StringIO, BytesIO
-from scripts.ml2 import machine_learning
+from scripts.ml2 import train_model, predict
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "test"
@@ -46,8 +44,9 @@ def upload_file():
 
             except UnicodeDecodeError:
                 df = pd.read_csv(f, encoding='Windows-1252')
-                
-            new_df = machine_learning(df)
+            
+            model = train_model()
+            new_df = predict(model,df)
 
             # Return the predicted data as a downloadable CSV file
             download_file = StringIO()
