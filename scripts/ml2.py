@@ -1,111 +1,108 @@
-import tensorflow as tf
 import pandas as pd
-import numpy as np
+import tensorflow as tf
 import chardet
+from sklearn.preprocessing import StandardScaler
 
-## OPTIMIZERS
-# optimizer = tf.keras.optimizers.SGD(learning_rate=0.001) ///
-# optimizer = tf.keras.optimizers.RMSprop(learning_rate=0.001) ///
-# optimizer = tf.keras.optimizers.Adagrad(learning_rate=0.001)
-# optimizer = tf.keras.optimizers.Adadelta(learning_rate=0.001)
-# optimizer = tf.keras.optimizers.Adamax(learning_rate=0.001)
-# optimizer = tf.keras.optimizers.Nadam(learning_rate=0.001)
-# optimizer = tf.keras.optimizers.Ftrl(learning_rate=0.001)
-# optimizer = tf.keras.optimizers.Optimizer(learning_rate=0.001)
-
-def machine_learning(test_data: pd.DataFrame):
-    optimizer = tf.keras.optimizers.Adam(learning_rate=0.001)
-
-    # TRAINING DATA
-    # file = './data/new_training4.csv'
-    file = './scripts/data/training.csv'
-    # file2 = './data/new_training2.csv'
-    # TEST DATA
-    # file3 = './data/testing.csv'
-
-    with open(file, 'rb') as f:
-        enc = chardet.detect(f.read())
-
-    # with open(file2, 'rb') as f:
-    #     enc2 = chardet.detect(f.read())
-
-    # with open(file3, 'rb') as f:
-    #     enc3 = chardet.detect(f.read())
-
+def train_model():
     cols = ["OID_"," id", "floor_area_sf", "civic_number"]
+    ### FOR TRAINING WITH MULTIPLE FILES ###
+    ### CHANGE THE FILE PATHS TO THE PATHS OF THE FILES YOU WANT TO TRAIN WITH ###
+    ### MAKE SURE TO USE THE ABSOLUTE PATHS !!! ###
+
+    # file_paths = ['./scripts/data/new_training1.csv', './scripts/data/new_training2.csv', './scripts/data/new_training3.csv']
+    # train_data = ''
+    # for file in file_paths:
+    #     enc = chardet.detect(open(file, 'rb').read())
+    #     data = pd.read_csv(file, encoding=enc['encoding'], usecols=cols)
+    #     if train_data == '':
+    #         train_data = data
+    #     else:
+    #         train_data = pd.concat([train_data, data])
+
+    ### FOR TRAINING WITH ONE FILE ###
+    ### IF USING THE ABOVE METHOD COMMENT OUT THE FOLLOWING CODE ###
+    ### FROM HERE ###
+    file_path = './scripts/data/new_training4.csv'
+    optimizer = tf.keras.optimizers.Adam(learning_rate=0.01)
+    
+    with open(file_path, 'rb') as f:
+        enc = chardet.detect(f.read())
+    
+    train_data = pd.read_csv(file_path, encoding=enc['encoding'], usecols=cols)
+    ### TO HERE ###
+
+    X_train = train_data.drop(['floor_area_sf'], axis=1)
+    y_train = train_data['floor_area_sf']
+    
+    scaler = StandardScaler()
+    cols.remove("floor_area_sf")
+    X_train[cols] = scaler.fit_transform(X_train[cols])
+    
+    model = tf.keras.Sequential([
+        tf.keras.layers.Dense(32, activation='relu', input_shape=[X_train.shape[1]]),
+        tf.keras.layers.Dense(16, activation='relu'),
+        tf.keras.layers.Dense(1)
+    ])
+    
+    model.compile(optimizer=optimizer, loss='mae', metrics=['mean_squared_error'])
+    weight_path = './scripts/data/model_weights.h5'
+    early_stopping = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=5, restore_best_weights=True)
+    best_saves = tf.keras.callbacks.ModelCheckpoint(weight_path, monitor='loss', save_best_only=True)
+    
+    tf.random.set_seed(42)
+    if X_train.shape[0] < 200:
+        epochs = 10
+    else:
+        epochs = 5
+    
+    for i in range(1):
+        model.load_weights(weight_path)
+        model.fit(X_train, y_train, epochs=1, callbacks=[best_saves,early_stopping])
+    
+  
+    return model
+
+
+def predict(model, test_data):
     cols2 = ["OID_"," id", "floor_area_sf", "civic_number"]
     
     for col in test_data.columns.values:
         if "id" in col:
             if col == "id":
-                cols2.append(col)
-                cols2.remove(" id")
-
-    empty = test_data['floor_area_sf'].isna().any()
-    if not empty:
-        return test_data 
-
+                ind = cols2.index(" id")
+                cols2[ind] = col
+    
+    ### IF TEST DATA HAS NO MISSING VALUES THEN RETURN IT ###
+    is_missing_vals = test_data['floor_area_sf'].isna().any()
+    if not is_missing_vals:
+        return test_data
+    
+    ### IF TEST DATA HAS MISSING VALUES THEN BEGIN USE ONLY NA VALUES ###
     test_data = test_data[test_data['floor_area_sf'].isna()]
     result = test_data
     test_data = test_data[cols2]
     
-    if test_data['floor_area_sf'].isna().any() == False:
-        return result
+    scaler = StandardScaler()
+    cols2.remove("floor_area_sf")
 
-    # Load training data
-    train_data = pd.read_csv(file, encoding=enc['encoding'], usecols=cols)
-    # data2 = pd.read_csv(file2, encoding=enc2['encoding'], usecols=cols)
+    ### DATA CLEANING ###
+    ### CHECK IF COLUMN IS NUMERIC THEN CONVERT IT TO NUMERIC ###
+    ### IF NOT THEN FILL THE MISSING VALUES WITH THE MEAN OF THE COLUMN ###
+    for col in test_data.columns:
+        if pd.to_numeric(test_data[col], errors='coerce').notnull().all():
+            test_data[col] = pd.to_numeric(test_data[col])    
+        else:
+            col_mean = pd.to_numeric(test_data[col], errors='coerce', downcast='float').mean(skipna=True)
+            test_data[col] = pd.to_numeric(test_data[col], errors='coerce', downcast='float')
+            test_data[col].fillna(value=col_mean, inplace=True)
 
-    # train_data = pd.concat([data], ignore_index=True)
-    # Preprocess data
-    X_train = train_data.drop(['floor_area_sf'], axis=1)
-    y_train = train_data['floor_area_sf']
+    scaler.fit(test_data[cols2])
+    test_data[cols2] = scaler.transform(test_data[cols2])
+    weight_path = './scripts/data/model_weights.h5'
 
-    X_train = X_train.astype(np.float32)
-    y_train = y_train.astype(np.float32)
-
-    # Build model architecture
-    model = tf.keras.Sequential([
-        tf.keras.layers.Dense(32, activation='sigmoid', input_shape=[X_train.shape[1]]),
-        tf.keras.layers.Dense(16, activation='sigmoid'),
-        tf.keras.layers.Dense(1)
-    ])
-
-    # Compile model
-    model.compile(optimizer=optimizer, loss='mae')
-
-    # Train model 500 512 100
-    model.fit(X_train, y_train, epochs=55, batch_size=32)
-
-    # Load test data
-    # test_data = pd.read_csv(file3, encoding=enc3['encoding'], usecols=cols)
-
-    # Preprocess test data
-    X_test = test_data.drop(['floor_area_sf'], axis=1)
-    X_test_cols = cols2.copy()
-    X_test_cols.remove('floor_area_sf')
-    for col in X_test_cols:
-        X_test[col] = pd.to_numeric(X_test[col], errors='coerce').fillna(0)
-    X_test = X_test.astype('float32')
-
-    # Make predictions on test data
-    y_pred = model.predict(X_test)
-
-    # Add predicted floor area column to test data
-    result['floor_area_sf_predicted'] = y_pred
-
+    model.load_weights(weight_path)
+    predictions = model.predict(test_data.drop(['floor_area_sf'], axis=1))
+    result['floor_area_sf_predicted'] = predictions.reshape(-1)
+    
     result.drop(['floor_area_sf'], axis=1, inplace=True)
-
     return result
-
-    # Save test data with predicted floor area column to CSV
-    # test_data.to_csv('./data/test_data_predicted.csv', index=False)
-
-# file3 = './data/testing.csv'
-# with open(file3, 'rb') as f:
-#     enc3 = chardet.detect(f.read())
-
-# cols = ["OID_"," id", "floor_area_sf", "civic_number"]
-# test_data = pd.read_csv(file3, encoding=enc3['encoding'], usecols=cols)
-
-# machine_learning(test_data)
